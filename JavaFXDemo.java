@@ -5,6 +5,8 @@
 package javafxdemo;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -50,43 +52,62 @@ public class JavaFXDemo extends Application{
         TextField firstField = new TextField();
         grid.add(firstField, 1, 0);
         String input1;
-        input1 = firstField.getText();
+        
         
         Label lastName = new Label("Last Name: ");
         grid.add(lastName, 0, 1);
         TextField lastField = new TextField();
         grid.add(lastField, 1, 1);
         String input2;
-        input2 = lastField.getText();
+        
         
         Label email = new Label("Email: ");
         grid.add(email, 0, 2);
         TextField emailField = new TextField();
         grid.add(emailField, 1, 2);
         String input3;
-        input3 = emailField.getText();
+        
         
         Label pw = new Label("Password: ");
         grid.add(pw, 0 , 3);
         TextField pwBox = new TextField();
         grid.add(pwBox, 1, 3);
         String input4;
-        input4 = pwBox.getText();
+        
         
         Button registerBtn = new Button("Register");
         grid.add(registerBtn, 0, 4);
         Boolean isFilled = false;
         registerBtn.setDisable(isFilled);
         
+        input1 = firstField.getText();
+        input2 = lastField.getText();
+        input3 = emailField.getText();
+        input4 = pwBox.getText();
+        
         Button clear = new Button("Clear");
         grid.add(clear, 1, 4);
         
-        if (input1 != "" 
-            && input2 != "" 
-            && input3 != "" 
-            && input4 != "") {
+        if (input1.isBlank()
+            && input2.isBlank()
+            && input3.isBlank()
+            && input4.isBlank()) {
             isFilled = true;
+        } else {
+            isFilled = false;
         }
+        
+        registerBtn.setDisable(input1.isBlank()
+            && input2.isBlank()
+            && input3.isBlank()
+            && input4.isBlank());
+        //registerBtn.setOnAction(new EventHandler<ActionEvent>() {
+            //@Override
+           // public void handle(ActionEvent event) {
+          //     input3.
+            //}
+        //}
+       
         
         primaryStage.setTitle("User Registration Form");
         primaryStage.setScene(scene);
