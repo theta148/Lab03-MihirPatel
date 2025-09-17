@@ -47,15 +47,46 @@ public class JavaFXDemo extends Application{
         
         Label firstName = new Label("First Name: ");
         grid.add(firstName, 0, 0);
+        TextField firstField = new TextField();
+        grid.add(firstField, 1, 0);
+        String input1;
+        input1 = firstField.getText();
         
         Label lastName = new Label("Last Name: ");
         grid.add(lastName, 0, 1);
+        TextField lastField = new TextField();
+        grid.add(lastField, 1, 1);
+        String input2;
+        input2 = lastField.getText();
         
         Label email = new Label("Email: ");
         grid.add(email, 0, 2);
+        TextField emailField = new TextField();
+        grid.add(emailField, 1, 2);
+        String input3;
+        input3 = emailField.getText();
         
         Label pw = new Label("Password: ");
         grid.add(pw, 0 , 3);
+        TextField pwBox = new TextField();
+        grid.add(pwBox, 1, 3);
+        String input4;
+        input4 = pwBox.getText();
+        
+        Button registerBtn = new Button("Register");
+        grid.add(registerBtn, 0, 4);
+        Boolean isFilled = false;
+        registerBtn.setDisable(isFilled);
+        
+        Button clear = new Button("Clear");
+        grid.add(clear, 1, 4);
+        
+        if (input1 != "" 
+            && input2 != "" 
+            && input3 != "" 
+            && input4 != "") {
+            isFilled = true;
+        }
         
         primaryStage.setTitle("User Registration Form");
         primaryStage.setScene(scene);
